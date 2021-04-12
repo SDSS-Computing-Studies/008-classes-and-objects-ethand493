@@ -45,18 +45,20 @@ class student:
     def getCourses(self, courses):
         self.courses = courses
         length = len(self.courses)
-        for i in (self.courses):
-            print(str(i)+"\n")
+#       for i in (self.courses):
+#           print(str(i)+"\n")
         return
         
     def getGrades(self, grades):
         self.grades = grades
+        self.getHonorRoll()
         return
     
     def getHonorRoll(self):
         newlist = self.grades.sort()
+        print(newlist)
         le = len(self.grades)
-        funny = {}
+        funny = []
         for i in range(1,5):
             funny.append(newlist[le - i])
         funsum = sum(funny)
