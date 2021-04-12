@@ -27,13 +27,13 @@ class student:
     name = ""
     studentNumber = ""
     grade = 0
-    courses = {}
-    Grades = {}
+    courses = []
+    Grades = []
     
     
     # properties should be listed first
 
-    def __init__(self, name, studentNumber, grade, courses={}, grades={}): # You will need to create your own input parameters for all methods
+    def __init__(self, name, studentNumber, grade, courses=[], grades=[]): # You will need to create your own input parameters for all methods
         self.name = name
         self.studentNumber = studentNumber
         self.grade = grade
@@ -43,35 +43,39 @@ class student:
 
 
     def getCourses(self, courses):
-        self.courses = courses
-        length = len(self.courses)
-#       for i in (self.courses):
-#           print(str(i)+"\n")
+        courses = self.courses
         return
         
     def getGrades(self, grades):
         self.grades = grades
-        self.getHonorRoll()
-        return
     
+    def showCourses(self):
+        print(self.courses)
+
     def getHonorRoll(self):
         newlist = self.grades.sort()
+        newlist.reverse()
         print(newlist)
         le = len(self.grades)
         funny = []
-        for i in range(1,5):
-            funny.append(newlist[le - i])
+        for i in range(0,4):
+            funny.append(newlist[i])
         funsum = sum(funny)
         if (funsum/5) >= 86:
-            print("True")
+            return True
         else:
-            print("False")
+            return False
 
 
     def average(self):
         Sum = sum(self.grades)
         x = Sum / len(self.grades)
+        return x
 
+    def index(self):
+        index = input("Enter index: ")
+        return index
+    
     def __del__(self):
         print("Goodbye " + self.name + ", it was nice knowing you\n")
 
