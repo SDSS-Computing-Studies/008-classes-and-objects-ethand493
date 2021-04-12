@@ -54,12 +54,11 @@ class student:
 
     def getHonorRoll(self):
         newlist = self.grades.sort()
-        newlist.reverse()
         print(newlist)
         le = len(self.grades)
         funny = []
-        for i in range(0,4):
-            funny.append(newlist[i])
+        for i in range(1,5):
+            funny.append(newlist[le - i])
         funsum = sum(funny)
         if (funsum/5) >= 86:
             return True
